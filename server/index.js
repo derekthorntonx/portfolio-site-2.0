@@ -4,6 +4,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import projectsRouter from "./routes/projects.js";
+import adminRouter from "./routes/user.js";
 
 const CONNECTION_URL = process.env.MONGO_URL;
 const PORT = process.env.PORT || 5001;
@@ -18,3 +19,4 @@ mongoose.connect(CONNECTION_URL).then(() => {app.listen(PORT, () => {`Server run
 .catch((err) => {console.log(err)});
 
 app.use('/projects', projectsRouter);
+app.use('/users', adminRouter);
