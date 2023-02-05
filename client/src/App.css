@@ -143,14 +143,63 @@
   font-size: 2vmax;
 }
 
+.login-card{
+  position: absolute;
+  top: 15%;
+  height: auto;
+  width: auto;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.23);
+  display: flex;
+  justify-content: center;
+  padding: 5%;
+  transition: 0.8s;
+  font-size: 2vh;
+  z-index: 10;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-button {
+  margin-top: 10%;
+  width: 50%;
+  align-self: center;
+  padding: 2.5%;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.23);
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.login-form input {
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  padding: 2.5%;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.23);
+}
+
+.login-form input:focus {
+  background: rgba(255, 255, 255, 0.5);
+  outline-width: 0;
+}
+
 h1 {
   font-size: 3vmax;
-  
 }
 
 h5 {
   font-size: 1.5vmax;
-  
 }
 
 .about-me-resume {

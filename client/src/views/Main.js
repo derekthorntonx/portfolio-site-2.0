@@ -1,10 +1,12 @@
 import resume from '../assets/DerekThorntonResume2023.pdf';
 import AboutMe from '../components/AboutMe';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'
 
 function Main() {
     const [frontpageProjects, setFrontpageProjects] = useState([]);
 
+    // On render, fetch showcase items and set as state
     useEffect(() => {
         async function fetchShowcaseData(){
             const response =  await fetch('http://localhost:5001/projects/showcase', {
@@ -33,7 +35,10 @@ function Main() {
       </section>
       
       <section className='projects-section' id='projects'>
-    
+        {frontpageProjects.map((project) => 
+        <h1 key={project._id}>{project.title}</h1>
+        )}
+        <Link to={'/projects'}>all projects</Link>
       </section>
 
       <section className='contact-section' id='contact'>
