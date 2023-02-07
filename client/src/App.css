@@ -143,6 +143,16 @@
   font-size: 2vmax;
 }
 
+.admin-wrapper{
+  position: relative;
+  min-height: 100vh;
+  background: #FB7BA2;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+  overflow-y: scroll;
+}
+
 .login-card{
   position: absolute;
   top: 15%;
@@ -192,6 +202,116 @@
 .login-form input:focus {
   background: rgba(255, 255, 255, 0.5);
   outline-width: 0;
+}
+
+.admin-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+  align-self: center;
+  height: auto;
+  width: auto;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.23);
+  padding: 5%;
+  transition: 0.8s;
+  font-size: 2vh;
+  z-index: 10;
+  gap: 5px;
+  margin-bottom: 5%;
+}
+
+.admin-form input, select, textarea {
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  padding: 2.5%;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.23);
+}
+
+.admin-form input:focus, select:focus, textarea:focus {
+  background: rgba(255, 255, 255, 0.5);
+  outline-width: 0;
+}
+
+.tags-wrapper {
+  margin-top: 1%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.project-tag {
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.23);
+  align-items: center;
+  padding: 1% 2.5%;
+  display: flex;
+}
+
+.project-edit {
+  width: 95vw;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.23);
+  padding: 2.5% 0;
+  display: grid;
+  grid-template-columns: 6fr 1fr;
+  margin-bottom: 1%;
+  text-indent: 1rem;
+}
+
+.project-edit button {
+  width: 2rem;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.23);
+  cursor: pointer;
+}
+
+
+.project-create-button {
+  width: 25%;
+  align-self: center;
+  border-radius: 12px;
+  outline: none;
+  border: transparent;
+  margin-top: 2.5%;
+  padding: 1.5%;
+  cursor: pointer;
+}
+
+.favourited {
+  background-color: green;
+}
+
+.project-create-button:hover, .project-edit button:hover {
+  background-color:#FCE043;
+}
+
+.tag-button {
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  border: none;
+}
+
+.tag-button:hover {
+  color: red;
+}
+
+.admin-projects-list {
+  position: relative;
 }
 
 h1 {
