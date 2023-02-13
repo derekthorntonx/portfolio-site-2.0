@@ -41,18 +41,20 @@ export const createProject = async (req, res) => {
         codeLink: req.body.codeLink,
         demoLink: req.body.demoLink,
         description: req.body.description,
-        imgSource: req.body.imgSource,
+        imgSource: req.file.path,
         showcase: false,
         tags: req.body.tags
     })
     console.log('Project created.');
+    console.log(req.file, 'this is req.file')
+    console.log(req.body)
     project.save();
     res.status(200).json({message: 'Project successfully created.'})
     } catch(err) {
-        console.log(err);
+        console.log('failed');
     }
 }
-
+ 
 //Delete project via id
 export const deleteProject = async (req, res) => {
     try {
