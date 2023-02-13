@@ -255,6 +255,7 @@
   align-items: center;
   padding: 1% 2.5%;
   display: flex;
+  font-size: calc(7px + .5vw);
 }
 
 .project-edit {
@@ -271,7 +272,8 @@
 }
 
 .project-edit button {
-  width: 2rem;
+  width: auto;
+  padding: 5%;
   background: rgba(255, 255, 255, 0.07);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -292,7 +294,7 @@
 }
 
 .favourited {
-  background-color: green;
+  color: yellow;
 }
 
 .project-create-button:hover, .project-edit button:hover {
@@ -328,12 +330,12 @@ h5 {
 
 .projects-section {
   height: auto;
+  min-height: 100vh;
   background:linear-gradient(180deg, rgba(63, 128, 197, 1) 50%, rgba(12, 59, 107, 1) 100%);
   margin-bottom: -0.5%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 12vh;
   gap: 10vh;
 }
 
@@ -367,38 +369,62 @@ h5 {
   }
 }
 
-.card {
-  height: auto;
+.content-card {
+  min-height: 40vh;
   width: 80vw;
   background: rgba(255, 255, 255, 0.03);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.23);
+  z-index: 999;
+  display: flex;
+  position: relative;
+  font-size: calc(7px + .5vw);
   opacity: 0;
   transition: 1s;
+}
+
+.content-card-buttons {
+  position: absolute;
+  bottom: 2.5%;
+  right: 5%;
+  display: flex;
+  gap: 5%;
+}
+
+.tags-list {
+  display: flex;
+  text-transform: uppercase;
+  opacity: 0.5;
+  flex-wrap: wrap;
+}
+
+.content-card button {
+  padding: 5%;
+}
+
+.content-image {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.content-image img {
+  height: 85%;
+  width: 85%;
+}
+
+.project-links a {
+  text-decoration: none;
+  color: black;
+}
+
+.content-info {
   display: flex;
   flex-direction: column;
   padding: 1%;
-  visibility: hidden;
+  width: 100%;
 }
-
-.content-card {
-  height: 50vh;
-  width: 80vw;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.23);
-  opacity: 0;
-  transition: 1s;
-}
-
-.card img, .sheet img {
-  border-radius: 10px;
-  width: 80vw;
-  max-height: 65vh;
-}
-
 
 @media only screen and (min-width: 2250px) {
   .navbar, .navbar a {
@@ -441,24 +467,6 @@ h5 {
 
 .project-links:hover {
   background: rgba(255, 255, 255, 0.2);
-}
-
-.project-description {
-  display: flex;
-  flex-direction: column;
-  margin-top: 1%;
-}
-
-
-.more-detail-wrapper {
-  margin-top: 5vh;
-  height: 90%;
-  width: 90%;
-  z-index: 10;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 5% 95%;
-  gap: 3%;
 }
 
 .contact-wrapper {
@@ -508,18 +516,24 @@ h5 {
 }
 
 @media only screen and (max-width: 700px) {
-  .about-me-blurb, .about-me-blurb h5, .about-me-blurb p {
-    font-size: 1.8vmax;
+  .content-card {
+    flex-direction: column;
+    min-height: 50vh;
+    padding: 2%;
   }
 
-  .experience-grid li {
-    margin-top: 3%;
+  .content-info {
+    padding: 0%;
+    font-size: calc(4px + .5vmin);
+    text-align: center;
   }
-}
 
-@media only screen and (max-width: 360px) {
-  .about-me-blurb, .about-me-blurb h5, .about-me-blurb p {
-    font-size: 1.6vmax;
+  .content-card-buttons {
+    right: 12%;
   }
-  
+
+  .content-image img {
+    height: 50%;
+    width: 50%;
+  }
 }

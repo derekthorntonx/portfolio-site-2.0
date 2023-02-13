@@ -1,7 +1,7 @@
 import Login from "../components/Login";
 import { useState, useEffect } from 'react';
 import ProjectTag from "../components/ProjectTag";
-import ProjectEditable from "../components/ProjectEditable";
+import ProjectEditable from '../components/ProjectEditable'
 
 
 //No context because login session should end immediately on navigation.
@@ -10,7 +10,7 @@ function Admin(){
     const [projectName, setProjectName] = useState('');
     const [codeLink, setCodeLink] = useState('');
     const [demoLink, setDemoLink] = useState('');
-    const [imgLink, setImgLink] = useState('');
+    const [imgFile, setImgFile] = useState(null);
     const [projectDescription, setProjectDescription] = useState('');
     const [tags, setTags] = useState([]);
     const [token, setToken] = useState('');
@@ -26,26 +26,30 @@ function Admin(){
         setTags([...tags, e.target.value])
     }
 
+    const selectFile = (e) => {
+        setImgFile(e.target.files[0])
+    }
+
+
     const handleFormSubmit = async () => {
-        if (loggedIn === false || projectName === '' || codeLink === '' || demoLink === '' || imgLink === '' || projectDescription === ''){return}
+        if (loggedIn === false || projectName === '' || codeLink === '' || demoLink === '' || projectDescription === ''){return}
         
+        let data = new FormData();
+            data.append('title', projectName);
+            data.append('codeLink', codeLink);
+            data.append('demoLink', demoLink);
+            data.append('description', projectDescription);
+            data.append('tags', [tags])
+            data.append('projectImage', imgFile)
         try {
             await fetch('http://localhost:5001/projects/create', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
                     'Authorization': token
                 },
-                body: JSON.stringify({
-                    title: projectName,
-                    codeLink: codeLink,
-                    demoLink: demoLink,
-                    description: projectDescription,
-                    imgSource: imgLink,
-                    showcase: false,
-                    tags: [tags]
-                })
+                body: data,
             })
+            console.log('fetch sent!')
         } catch (error) {
             console.log(error);
         }
@@ -56,7 +60,6 @@ function Admin(){
             method: 'GET'});
         const projects = await response.json();
         setProjectsList(projects)
-        console.log(projects)
     }
 
     useEffect(() => {
@@ -66,23 +69,23 @@ function Admin(){
     return(
     <div className='admin-wrapper'>
         {!loggedIn ? <Login setLoggedIn={setLoggedIn} setToken={setToken} /> : <div className="admin-page">
-        <form className="admin-form" onSubmit={handleFormSubmit}>
+        <form className="admin-form" onSubmit={handleFormSubmit} encType='multipart/form-data'>
                 <h2>Add a project</h2>
                 <label htmlFor="projectName">Title</label>
-                <input type='text' id="projectName" required value={projectName} onChange={(e) => setProjectName(e.target.value)}/>
+                <input type='text' id="projectName" name="title" required value={projectName} onChange={(e) => setProjectName(e.target.value)}/>
 
                 <label htmlFor="codeLink">Code Link</label>
-                <input type='text' id="codeLink" value={codeLink} required onChange={(e) => setCodeLink(e.target.value)}/>
+                <input type='text' id="codeLink" value={codeLink} name="codeLink" required onChange={(e) => setCodeLink(e.target.value)}/>
 
                 <label htmlFor="demoLink">Demo Link</label>
-                <input type='text' id="demoLink" value={demoLink} required onChange={(e) => setDemoLink(e.target.value)}/>
+                <input type='text' id="demoLink" value={demoLink} name="demoLink" required onChange={(e) => setDemoLink(e.target.value)}/>
 
                 <label htmlFor="projectDescription">Description</label>
-                <textarea rows="4" cols="50" id="projectDescription" required value={projectDescription} onChange={(e) => setProjectDescription(e.target.value)}/>
+                <textarea rows="4" cols="50" id="projectDescription" name="description" required value={projectDescription} onChange={(e) => setProjectDescription(e.target.value)}/>
 
-                <label htmlFor="imgSource">Image</label>
-                <input type='file' id="imgSource" value={imgLink} required onChange={(e) => setImgLink(e.target.value)}/>
-
+                <label htmlFor="projectImage">Image</label>
+                <input type='file' id="projectImage" name="projectImage" onChange={selectFile} required />
+ 
                 <label htmlFor="projectTags">Tags</label>
                 <select name="projectTags" id="projectTags" defaultValue='none' onChange={handleTag}>
                     <option value='none'>Choose a tag...</option>

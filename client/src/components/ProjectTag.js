@@ -8,7 +8,7 @@ function ProjectTag({ tag, tags, setTags }) {
     return(
         <div className="project-tag">
             <h4 style={{marginRight: '5px'}}>{tag}</h4>
-            <button className="tag-button" onClick={handleRemoveTag}>x</button>
+            <button className="tag-button" onClick={handleRemoveTag}>Del</button>
         </div>
     )
 }

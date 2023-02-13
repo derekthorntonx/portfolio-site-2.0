@@ -20,9 +20,15 @@ function ProjectEditable({ project, token, fetchProjectList }) {
         const result = window.confirm('Delete?');
 
         if(result){
+            let path = './' + project.imgSource;
             const response = await fetch (`http://localhost:5001/projects/${project._id}`, {
                 method: 'DELETE',
-                headers: {'Authorization': token}
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': token},
+                body: JSON.stringify({
+                    path: path
+                })
             })
             if(response.ok){
                 fetchProjectList();
@@ -35,8 +41,8 @@ function ProjectEditable({ project, token, fetchProjectList }) {
         <div className="project-edit">
             {project.title}
             <div>
-                <button className={project.showcase ? 'favourited' : ''} onClick={handleToggleShowcase}>*</button>
-                <button onClick={handleDelete}>x</button>
+                <button className={project.showcase ? 'favourited' : ''} onClick={handleToggleShowcase}>Fav</button>
+                <button onClick={handleDelete}>Del</button>
             </div>
         </div>
     )

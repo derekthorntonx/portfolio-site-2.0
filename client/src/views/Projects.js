@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Project from '../components/Project';
 
 function Projects() {
     const [tags, setTags] = useState([]);
@@ -17,7 +18,8 @@ function Projects() {
     }, []);
 
     return(
-    <div className='about-me-section'>
+    <div className='projects-section'>
+        <div>
         <Link to='/'>back</Link>
 
         <form>
@@ -25,10 +27,10 @@ function Projects() {
             <label htmlFor='tag1'>Put tags here</label>
         </form>
         {projectsList.map(project => 
-            <h1 key={project._id}>{project.title}</h1>
+            <Project key={project._id} project={project} />
             )}
-            
-        <div className='section-divider waves'></div>
+        </div>
+        
     </div>
     )
 }
