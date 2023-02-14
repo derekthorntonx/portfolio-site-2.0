@@ -6,4 +6,4 @@ Authentication and authorization is handled through JWT, which upon successful l
 
 ![login screen](https://github.com/derekthorntonx/portfolio-site-2.0/tree/main/client/src/assets/log-in.png)
 
-<img src="https://github.com/derekthorntonx/portfolio-site-2.0/tree/main/client/src/assets/log-in.png" alt="Alt text" title="Optional title">
+<img src="/assets/log-in.png" alt="Alt text" title="Optional title">
