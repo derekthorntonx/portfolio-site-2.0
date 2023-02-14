@@ -4,6 +4,9 @@ Main purpose of the revision is to allow dynamic updates on projects, as well as
 
 Authentication and authorization is handled through JWT, which upon successful log-in will be given and expire shortly after.
 
-
+## Log-in page (no direct navigation from front-page)
 ![login screen](client/src/assets/log-in.png)
+
+## Create-form page
+![create screen](client/src/assets/create-form.png)
 
