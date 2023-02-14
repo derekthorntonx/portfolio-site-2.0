@@ -382,6 +382,7 @@ h5 {
   font-size: calc(7px + .5vw);
   opacity: 0;
   transition: 1s;
+  margin-bottom: 2vh;
 }
 
 .content-card-buttons {
@@ -410,8 +411,8 @@ h5 {
 }
 
 .content-image img {
-  height: 85%;
-  width: 85%;
+  height: 30vh;
+  width: auto;
 }
 
 .project-links a {
@@ -449,6 +450,7 @@ h5 {
   padding-top: 15vh;
   display: flex;
   justify-content: center;
+  
 }
 
 .project-links {
@@ -472,6 +474,10 @@ h5 {
 .contact-wrapper {
   display: flex;
   flex-direction: row;
+}
+
+.contacts {
+  align-self: center;
 }
 
 .contacts a {
@@ -536,4 +542,51 @@ h5 {
     height: 50%;
     width: 50%;
   }
+}
+
+.back-nav {
+  position: absolute;
+  left: 1%;
+  top: 1%;
+  text-decoration: none;
+  color: white;
+}
+
+.back-nav:hover {
+  color: yellow;
+}
+
+.tags-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 2.5%;
+  padding-top: 12%;
+}
+
+.tags-form label {
+  margin-left: 5px;
+}
+
+.link-to-projects {
+  text-decoration: none;
+  color: white;
+  position: relative;
+}
+
+.link-to-projects:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #fffafa;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.link-to-projects:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }

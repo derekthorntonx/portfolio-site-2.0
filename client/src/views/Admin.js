@@ -93,9 +93,9 @@ function Admin(){
                     <option value='backend'>Back-end</option>
                     <option value='fullstack'>Full-stack</option>
                     <option value='react'>React.js</option>
-                    <option value='javascript'>Javascript</option>
-                    <option value='python'>Python</option>
-                    <option value='php'>PHP</option>
+                    <option value='thirdparty'>Third-party API</option>
+                    <option value='productivity'>Productivity</option>
+                    <option value='entertainment'>Entertainment</option>
                 </select>
                 <div className="tags-wrapper">
                     {tags.map((tag, index) => <ProjectTag key={index} tag={tag} tags={tags} setTags={setTags}/>)}

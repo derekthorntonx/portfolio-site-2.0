@@ -3,6 +3,7 @@ import AboutMe from '../components/AboutMe';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 import Project from '../components/Project';
+import Contact from '../components/Contact';
 
 function Main() {
     const [frontpageProjects, setFrontpageProjects] = useState([]);
@@ -38,11 +39,11 @@ function Main() {
         {frontpageProjects.map((project) => 
         <Project key={project._id} project={project}/>
         )}
-        <Link to={'/projects'}>all projects</Link>
+        <Link to={'/projects'} className='link-to-projects'>View All Projects</Link>
       </section>
 
       <section className='contact-section' id='contact'>
-          
+        <Contact />
       </section>
     </div>
   );

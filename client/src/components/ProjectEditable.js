@@ -1,3 +1,6 @@
+import { faTrash, faStar } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 function ProjectEditable({ project, token, fetchProjectList }) {
 
     const handleToggleShowcase = async (e) => {
@@ -41,8 +44,8 @@ function ProjectEditable({ project, token, fetchProjectList }) {
         <div className="project-edit">
             {project.title}
             <div>
-                <button className={project.showcase ? 'favourited' : ''} onClick={handleToggleShowcase}>Fav</button>
-                <button onClick={handleDelete}>Del</button>
+                <button className={project.showcase ? 'favourited' : ''} onClick={handleToggleShowcase}><FontAwesomeIcon icon={faStar}/></button>
+                <button onClick={handleDelete}><FontAwesomeIcon icon={faTrash}/></button>
             </div>
         </div>
     )
