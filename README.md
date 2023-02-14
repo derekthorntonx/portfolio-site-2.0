@@ -5,5 +5,5 @@ Main purpose of the revision is to allow dynamic updates on projects, as well as
 Authentication and authorization is handled through JWT, which upon successful log-in will be given and expire shortly after.
 
 
-![login screen](https://github.com/derekthorntonx/portfolio-site-2.0/tree/main/client/src/assets/log-in.png)
+![login screen](log-in.png)
 
